@@ -1,4 +1,6 @@
 import numpy as np
+
+
 def get_data_set():
     examples = [
         np.array([[0, 0], [0, 0]]),
@@ -21,9 +23,12 @@ def get_data_set():
 
     def training_set():
         while True:
-            yield np.random.choice(examples)
+            index = np.random.choice(len(examples))
+            yield examples[index]
+
     def evaluation_set():
         while True:
-            yield np.random.choice(examples)
+            index = np.random.choice(len(examples))
+            yield examples[index]
 
     return training_set, evaluation_set
